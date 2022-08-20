@@ -1,8 +1,7 @@
 package com.bridgelabz.linkedlist;
-
 class Node {
-    private int data;
-    private Node next;
+    public int data;
+    public Node next;
 
     //Node Constructor for Creating New Node
     Node(int data) {
@@ -17,21 +16,43 @@ class LinkedList {
     //Insert Data in New Node
     public void insertFirst(int data) {
         Node newNode = new Node(data);
+        //Adding Data in Node
+        if(head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            newNode.next = head;
+            head = newNode;
+        }
+    }
+
+    //Display Node in Linked List
+    public void showLinkedList() {
+        if(head == null) {
+            System.out.println("Linked List is Empty.");
+        } else {
+            Node temp = head;
+            while (temp != null) {
+                System.out.print(temp.data + " -> ");
+                temp = temp.next;
+            }
+        }
     }
 }
 
 public class LinkedListDemo {
     public static void main(String[] args) {
         //Welcome Message
-        System.out.println("Welcome to LinkedList Data Structures Problems.");
+        System.out.println("Welcome to LinkedList Data Structures Problem.");
 
         LinkedList linkedList = new LinkedList();
-        //Insert 50, 30, 70 in Linked List Nodes
 
-        linkedList.insertFirst(56);
-        linkedList.insertFirst(30);
+        //Insert 70, 50, 36 in Linked List Nodes
         linkedList.insertFirst(70);
+        linkedList.insertFirst(30);
+        linkedList.insertFirst(56);
 
-
+        //Showing Linked List Data
+        linkedList.showLinkedList();
     }
 }
