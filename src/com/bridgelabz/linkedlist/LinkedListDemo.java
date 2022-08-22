@@ -85,6 +85,21 @@ class LinkedList {
             second_Last.next = null;
         }
     }
+    public void searchNode(int data) {
+        if(head == null) {
+            System.out.println("Linked List is Empty.");
+        } else {
+            int foundLocation = 1;
+            Node temp = head;
+            while(temp != null) {
+                if(temp.data == data) {
+                    System.out.println("Node found at Location : "+foundLocation);
+                }
+                foundLocation++;
+                temp = temp.next;
+            }
+        }
+    }
     //Display Node in Linked List
     public void showLinkedList() {
         if(head == null) {
@@ -118,7 +133,8 @@ public class LinkedListDemo {
             System.out.println("4. INSERT AT Nth POSITION ");
             System.out.println("5. DELETE FIRST ELEMENT ");
             System.out.println("6. DELETE LAST ELEMENT ");
-            System.out.println("7. EXIT ");
+            System.out.println("7. SEARCH ELEMENT ");
+            System.out.println("8. EXIT ");
             System.out.println("Enter the Choice for Operation : ");
             choice = sc.nextInt();
 
@@ -153,7 +169,11 @@ public class LinkedListDemo {
                     System.out.println("After Last Node Delete");
                     linkedList.showLinkedList();
                     break;
+                case 7:
+                    System.out.println("Enter the Data to Search within Linked List : ");
+                    linkedList.searchNode(sc.nextInt());
+                    break;
             }
-        }while(choice != 7);
+        }while(choice != 8);
     }
 }
