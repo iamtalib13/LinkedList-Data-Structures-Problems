@@ -75,7 +75,16 @@ class LinkedList {
         }
     }
 
-
+    public void popLast() {
+        if(head == null) {
+            System.out.println("Linked List is Empty.");
+        } else {
+            Node second_Last = head;
+            while(second_Last.next.next != null)
+                second_Last = second_Last.next;
+            second_Last.next = null;
+        }
+    }
     //Display Node in Linked List
     public void showLinkedList() {
         if(head == null) {
@@ -103,12 +112,13 @@ public class LinkedListDemo {
         do {
             System.out.println();
             System.out.println("SIMPLE LINKED LIST OPERATIONS");
-            System.out.println("1. INSERT FIRST");
-            System.out.println("2. INSERT LAST ");
+            System.out.println("1. INSERT FIRST ELEMENT ");
+            System.out.println("2. INSERT LAST ELEMENT");
             System.out.println("3. DISPLAY LIST ");
             System.out.println("4. INSERT AT Nth POSITION ");
-            System.out.println("5. DELETE FIRST POSITION ");
-            System.out.println("6. EXIT ");
+            System.out.println("5. DELETE FIRST ELEMENT ");
+            System.out.println("6. DELETE LAST ELEMENT ");
+            System.out.println("7. EXIT ");
             System.out.println("Enter the Choice for Operation : ");
             choice = sc.nextInt();
 
@@ -138,7 +148,12 @@ public class LinkedListDemo {
                     System.out.println("After First Node Delete");
                     linkedList.showLinkedList();
                     break;
+                case 6:
+                    linkedList.popLast();
+                    System.out.println("After Last Node Delete");
+                    linkedList.showLinkedList();
+                    break;
             }
-        }while(choice != 6);
+        }while(choice != 7);
     }
 }
